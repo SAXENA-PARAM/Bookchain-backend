@@ -9,7 +9,8 @@ interface Bindings {
 
 const app = new Hono<{ Bindings: Bindings }>()
 
-app.use(cors())
+app.use(cors({ origin: '*' })) // Allow all origins
+
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
